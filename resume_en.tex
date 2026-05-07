@@ -1,0 +1,154 @@
+% GitHub Repo and Documentation: https://github.com/celiobjunior/resume-template
+% Copyright © 2025 Celio B Junior. All rights reserved.
+% 
+% Licensed under the Apache License, Version 2.0 (the "License");
+% you may not use this file except in compliance with the License.
+% You may obtain a copy of the License at
+%
+%     http://www.apache.org/licenses/LICENSE-2.0
+%
+% This template follows best practices from README.md
+
+% Beginning of the LaTeX document: defines document type and format
+% a4paper = A4 size, 10pt = base font size
+\documentclass[a4paper,10pt]{article}
+
+% --- PACKAGES: BASE / LANGUAGE ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+
+% --- PACKAGES: LAYOUT / TYPOGRAPHY ---
+\usepackage{geometry}
+\usepackage{parskip}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{array}
+\usepackage{tabularx}
+
+% --- PACKAGES: LINKS / BOOKMARKS ---
+\usepackage{hyperref}
+\usepackage{bookmark}
+\usepackage{xurl}
+
+% --- CONFIGURATION: MARGINS / SPACING ---
+\geometry{top=1.5cm, bottom=1.5cm, left=1.5cm, right=1.5cm} % Page margins
+\setcounter{secnumdepth}{0}                                  % Removes section numbering
+\setlist[itemize]{
+    leftmargin=0.75em, % List indentation
+    itemsep=0.2em,     % Space between items
+    topsep=0.25em,     % Space before/after lists
+    parsep=0em,        % Space between paragraphs in the same item
+    partopsep=0em      % Extra space at the start of a list
+}
+
+% Removes page numbers and headers for a clean resume layout
+\pagestyle{empty}
+
+% --- CONFIGURATION: METADATA / LINKS ---
+\hypersetup{
+    pdftitle={CV Pedro Franco}, % PDF title
+    pdfauthor={Pedro Franco},   % PDF author
+    colorlinks=true,            % Uses colored links without boxes
+    linkcolor=black,            % Internal link color
+    urlcolor=black,             % URL color
+    citecolor=black,            % Citation color
+    bookmarksdepth=2            % Sidebar: section and subsection
+}
+
+% --- CONFIGURATION: TITLES ---
+\titleformat{\section}
+{\Large\bfseries}
+{}
+{0em}
+{}
+[\titlerule\vspace{0.5ex}]
+\titleformat{\subsection}
+{\normalsize\bfseries}
+{}
+{0em}
+{}
+\titlespacing*{\subsection}{0pt}{0.35em}{0.15em}
+
+% Macro for resume entries with PDF bookmarks
+\newcounter{cventry}
+\newcommand{\cventry}[4]{%
+    \refstepcounter{cventry}%
+    \phantomsection%
+    \pdfbookmark[2]{#1}{cventry-\thecventry}%
+    \noindent\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.68\textwidth} >{\raggedleft\arraybackslash}p{0.30\textwidth}@{}}
+    \textbf{#1} & #2 \\
+    \textit{#3} & \textit{#4} \\
+    \end{tabularx}
+}
+
+% --- BEGIN DOCUMENT ---
+\begin{document}
+
+% --- HEADER ---
+\begin{center}
+    {\LARGE \textbf{Pedro Franco}}
+    \\ [0.1cm]
+    Mogi das Cruzes, SP
+    {\textbullet}
+    \href{tel:+5511996902133}{+55 11 99690-2133}
+    {\textbullet}
+    \href{mailto:amorimfranco1@gmail.com}{amorimfranco1@gmail.com}
+    {\textbullet}
+    \href{https://www.linkedin.com/in/pedro-franco-b40b3922b}{linkedin.com/in/pedro-franco-b40b3922b}
+\end{center}
+
+% --- SECTIONS ---
+
+\section{Summary}
+Systems Analysis and Development student at Fatec Mogi das Cruzes, currently in the 5th semester, with hands-on experience in mobile development using React Native, TypeScript, and Expo. Worked on end-to-end feature development, from interface implementation to REST API integration, including features with Google Places and Pagar.me. Professional experience in a software development environment, plus 2 semesters as an English teaching assistant. Fluent in English, with C1 proficiency certified by TOEIC.
+
+% ------
+
+\section{Experience}
+    \cventry{Mestres da Web}{Mogi das Cruzes, SP}{Mobile Developer Intern}{May 2025 -- Apr. 2026}
+        \begin{itemize}
+            \item Developed mobile features with React Native, TypeScript, and Expo, working from interface implementation to REST API integration.
+            \item Delivered complete features by converting layouts into functional screens and implementing business rules in mobile applications.
+            \item Implemented Google Places integration for location features and interactive maps.
+            \item Integrated Pagar.me for in-app payment flows.
+        \end{itemize}
+
+% ------
+
+\section{Leadership and Teaching}
+    \cventry{Fatec Mogi das Cruzes}{Mogi das Cruzes, SP}{English Teaching Assistant}{Aug. 2024 -- May 2025}
+        \begin{itemize}
+            \item Guided students during English tutoring sessions and study support over 2 semesters.
+            \item Supported students' academic development through clear communication, content organization, and close follow-up.
+        \end{itemize}
+
+% ------
+
+\section{Skills}
+    \begin{itemize}
+        \item \textbf{Languages:} TypeScript, JavaScript
+        \item \textbf{Mobile:} React Native, Expo
+        \item \textbf{Integrations:} REST APIs, Google Places, Pagar.me
+        \item \textbf{Tools:} Git, GitHub, Postman
+        \item \textbf{Languages Spoken:} Portuguese (native), English (fluent/C1)
+        \item \textbf{Certification:} Test of English for International Communication (TOEIC)
+    \end{itemize}
+
+% ------
+
+% !!!!!!!!!!!!!!!!!!!!!!
+% Move this section to the top, after the header and before
+% your experience, if you are looking for your first job or
+% an internship. Otherwise, leave it as is.
+% !!!!!!!!!!!!!!!!!!!!!!
+
+\section{Education}
+    \cventry{Fatec Mogi das Cruzes}{Mogi das Cruzes, SP}{Technologist Degree in Systems Analysis and Development}{Feb. 2024 -- Dec. 2026}
+
+    \cventry{Unifesp -- Federal University of São Paulo}{São José dos Campos, SP}{Bachelor's Degree in Science and Technology --- completed through the 5th semester}{Mar. 2021 -- Jun. 2023}
+
+    \cventry{Etec Presidente Vargas}{Mogi das Cruzes, SP}{Technical High School Program in Electronics}{Feb. 2018 -- Dec. 2020}
+
+\end{document}
